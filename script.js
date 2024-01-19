@@ -1,10 +1,17 @@
-function beforesubmit(){
-  let outputdate = document.querySelector('.outputdate');
-  let inputdate = document.querySelector('.inputdate');
-  console.log('inputdate.value', inputdate.value); //sting --> date (en_US)
-  let formattedDate = new Date(inputdate.value).toLocaleDateString("en-US");
-  console.log("formattedDate");
-  outputdate.value = formattedDate;
+let captchachecked = false;
+function beforesubmit(event){
+  if(capthachecked){
+    let outputdate = document.querySelector('.outputdate');
+    let inputdate = document.querySelector('.inputdate');
+    console.log('inputdate.value', inputdate.value); //sting --> date (en_US)
+    let formattedDate = new Date(inputdate.value).toLocaleDateString("en-US");
+    console.log("formattedDate");
+    outputdate.value = formattedDate;
+  }else{
+    alert("Please check the reCAPTCHA box to submit the lead");
+    event.preventDefault();
+  }
+
 }
 
 function timestamp() { 
@@ -20,6 +27,9 @@ function timestamp() {
 } 
 setInterval(timestamp, 500); 
 
+function captchasuccess(){
+  capthachecked = true;
+}
 //reCaptcha website:  google.com/recaptcha/admin/create
 //challenge
 //domain: promoteglobal.github.io
