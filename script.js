@@ -1,6 +1,6 @@
 let captchachecked = false;
 function beforesubmit(event){
-  if(capthachecked){
+  if(captchachecked){
     let outputdate = document.querySelector('.outputdate');
     let inputdate = document.querySelector('.inputdate');
     console.log('inputdate.value', inputdate.value); //sting --> date (en_US)
@@ -28,7 +28,7 @@ function timestamp() {
 setInterval(timestamp, 500); 
 
 function captchasuccess(){
-  capthachecked = true;
+  captchachecked = true;
 }
 //reCaptcha website:  google.com/recaptcha/admin/create
 //challenge
